@@ -36,8 +36,8 @@ document.addEventListener("DOMContentLoaded", function() {
             const date = row.cells[3].querySelector("input").value;
             const place = row.cells[4].querySelector("input").value;
 
-            const identifier = username || deviceID;
-            const record = { identifier, image, species, date, place };
+            const identifier = deviceID; // Always use deviceID for tracking, separate from username
+            const record = { username, deviceID: identifier, image, species, date, place };
             saveRecord(record);
         } else if (event.target.classList.contains("date-btn")) {
             getDate(event.target);
